@@ -70,16 +70,22 @@ a model feature because it is known only after the show is complete.
 │   ├── train.csv
 │   ├── later.csv
 │   └── holdout_features.csv
+├── app/
+│   └── main.py
 ├── src/
 │   ├── clean.py
 │   ├── findings.py
 │   ├── train.py
 │   ├── monitor.py
 │   └── predict.py
+├── tests/
+│   └── test_main.py
 ├── predictions/
 ├── k8s/
 │   └── deployment.yaml
 ├── Dockerfile
+├── requirements.txt
+├── params.yaml
 ├── findings.yaml
 ├── PROBLEM.md
 ├── GROUP.md
@@ -123,6 +129,7 @@ Example workflow:
 
 ```powershell
 python -m pip install -r requirements.txt
+pytest
 python src/clean.py
 python src/train.py
 python src/monitor.py
@@ -185,6 +192,11 @@ The request schema must reject:
 
 These constraints must be enforced with Pydantic `Field` validation, resulting
 in HTTP 422 for invalid requests.
+
+The API loads its serialized model from `models/champion.joblib` by default.
+Set the `MODEL_PATH` environment variable to use a different model artifact.
+Until a model artifact is available, `/predict` returns HTTP 503; `/health`
+remains available for service health checks.
 
 Example local API start command:
 
