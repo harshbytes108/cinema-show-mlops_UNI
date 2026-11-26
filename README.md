@@ -45,6 +45,10 @@ where lower values indicate better estimates.
 | `data/later.csv` | July-August 2026 | Post-launch monitoring and retraining data |
 | `data/holdout_features.csv` | September 2026 | Final prediction input without the target |
 
+For DVC, raw copies of the training and later datasets are tracked at
+`data/raw/train.csv` and `data/raw/later.csv`. The original `data/` paths are
+retained for compatibility with the problem specification.
+
 The available feature columns are:
 
 - `record_id`
@@ -69,7 +73,10 @@ a model feature because it is known only after the show is complete.
 ├── data/
 │   ├── train.csv
 │   ├── later.csv
-│   └── holdout_features.csv
+│   ├── holdout_features.csv
+│   └── raw/
+│       ├── train.csv.dvc
+│       └── later.csv.dvc
 ├── app/
 │   └── main.py
 ├── src/
