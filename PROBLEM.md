@@ -26,7 +26,7 @@ Error): the average size of a mistake, in percent.
 | `data/train.csv` | about 1000 | January to June 2026. Your training data. **It is messy.** |
 | `data/later.csv` | 300 | July and August 2026. Arrived after your model went live. Clean. |
 | `data/holdout_features.csv` | 250 | September 2026. No target. You predict it at the very end. |
-| `findings.yaml` | --- | The form you fill in. The marking tool reads it. |
+| `reports/findings.yaml` | --- | The form you fill in. The marking tool reads it. |
 
 Columns:
 
@@ -54,8 +54,8 @@ ones."
 The handbook lists **seven kinds of data problem**. Some of them are hidden
 in your `train.csv`, and some are not. For **each of the seven**, find out
 whether it is present, and if it is, give the details asked for in
-`findings.yaml`. Every answer must come from your own code looking at your
-own file: write that code in `src/` and keep it.
+`reports/findings.yaml`. Every answer must come from your own code looking at
+your own file: write that code in `src/` and keep it.
 
 Hint: some columns are only filled in *after* the event is over. Ask
 yourself, for every column, "would I know this value at the moment I have to
@@ -115,4 +115,4 @@ values and scores your MAE.
 - Not a Kaggle contest. A sensible model that passes the bar is enough; the
   marks are for the **whole pipeline**.
 - Not a problem you can solve without running code on your own data. Every
-  number in `findings.yaml` is checked against your files.
+  number in `reports/findings.yaml` is checked against your files.

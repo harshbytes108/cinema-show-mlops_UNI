@@ -93,7 +93,8 @@ a model feature because it is known only after the show is complete.
 ├── Dockerfile
 ├── requirements.txt
 ├── params.yaml
-├── findings.yaml
+├── reports/
+│   └── findings.yaml
 ├── PROBLEM.md
 ├── GROUP.md
 └── README.md
@@ -115,8 +116,8 @@ The training data must be inspected for these seven issue types:
 7. Spelling variants
 
 All evidence and detected values must be computed by code in `src/` and recorded
-in `findings.yaml`. The final submission should not rely on manually guessed
-results.
+in `reports/findings.yaml`. The final submission should not rely on manually
+guessed results.
 
 ## Training and Experiment Tracking
 
@@ -161,7 +162,8 @@ After the v1 model goes live:
 MAE(v2) <= 0.88 * MAE(v1)
 ```
 
-The monitoring decisions and metric values must be written to `findings.yaml`.
+The monitoring decisions and metric values must be written to
+`reports/findings.yaml`.
 
 ## Prediction API
 
@@ -279,7 +281,7 @@ file.
 ## Submission Checklist
 
 - [ ] Data issue detection code is complete
-- [ ] `findings.yaml` contains verified values
+- [ ] `reports/findings.yaml` contains verified values
 - [ ] v1 is trained and registered in MLflow
 - [ ] PSI and location-wise MAE are recorded
 - [ ] v2 retraining and promotion decision are complete
@@ -295,4 +297,4 @@ file.
 
 - [Problem Specification](PROBLEM.md)
 - [Group Details](GROUP.md)
-- [Findings Template](findings.yaml)
+- [Findings Template](reports/findings.yaml)
