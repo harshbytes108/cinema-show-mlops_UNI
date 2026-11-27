@@ -37,32 +37,26 @@ data_issues:
 
 tracking:
   experiment_name: "mp183_occupancy"
-  best_run_id: "7299f39d7eb24a6b9f4ca286df67981f"
+  best_run_id: "bf36378568274106a0d519e6d48a9a72"
   registered_model_name: "mp183_occupancy_model"
-  champion_version: 2
+  champion_version: 1
 
 monitoring:
-  drift_detected: true
-  top_drifted_feature: "days_since_release"
-  top_psi: 5.1336
-  v1_train_mae: 3.4992
-  v1_later_mae: 6.7014
-  retrained: true
-  v2_val_mae: 4.5908
-  v2_later_mae: 3.0481
-  psi:                     # cleaned train.csv vs later.csv, 10 bins
+  psi_scores:
     ticket_price_rs: 0.1196
     days_since_release: 5.1336
     star_rating: 0.0453
     show_hour: 0.0226
     screen_seats: 0.0689
     distance_to_metro_km: 0.0345
-  most_drifted_feature: "days_since_release"
-  mae_by_group:            # v1 on later.csv, per value of location
-    'City Centre': null
-    'Mall': null
-    'Highway': null
-  worst_served_group: null
-  mae_v1_on_check: null    # v1 on the last 30% of later.csv (by date)
-  mae_v2_on_check: null    # v2 on the same rows
-  decision: null           # promote or keep
+  top_drifted_feature: "days_since_release"
+  top_psi: 5.1336
+  location_mae_v1:
+    City Centre: 4.3636
+    Mall: 5.604
+    Highway: 11.3735
+  worst_served_group: "Highway"
+  mae_v1_last30: 6.1384
+  mae_v2_last30: 5.4042
+  v2_run_id: "48c1b0f67a224d3bb79a8d4f8a054d28"
+  decision: "keep"
