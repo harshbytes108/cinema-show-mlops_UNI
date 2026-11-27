@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinema-occupancy-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cinema-occupancy-api
+  template:
+    metadata:
+      labels:
+        app: cinema-occupancy-api
+    spec:
+      containers:
+        - name: api
+          image: cinema-show-mlops:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
